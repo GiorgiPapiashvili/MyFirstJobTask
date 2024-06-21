@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "A815RWIu3jZ7grdnfVhrzqUiMRM38fUR8FszKXB/5V3a3EyFHpIpk2qZDXj6++IIRHfaOc6ifjebLA5P8GT/yQ==",
+  "dgSpecHash": "GvwwkssIHJWNz/b5xr3HwAX8NgtON5JlJPBsLHNMYU2HZqqEfLk7UmgyaPeDemGF7UpC6HN2tEsYQQRxrSKv8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Giush\\Desktop\\JobTaskRepository\\MyFirstJobProject\\MyFirstJobProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Giush\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
+    "C:\\Users\\Giush\\.nuget\\packages\\fluentemail.core\\3.0.2\\fluentemail.core.3.0.2.nupkg.sha512",
+    "C:\\Users\\Giush\\.nuget\\packages\\fluentemail.smtp\\3.0.2\\fluentemail.smtp.3.0.2.nupkg.sha512",
     "C:\\Users\\Giush\\.nuget\\packages\\itext\\8.0.4\\itext.8.0.4.nupkg.sha512",
     "C:\\Users\\Giush\\.nuget\\packages\\itext.bouncy-castle-adapter\\8.0.4\\itext.bouncy-castle-adapter.8.0.4.nupkg.sha512",
     "C:\\Users\\Giush\\.nuget\\packages\\itext.commons\\8.0.4\\itext.commons.8.0.4.nupkg.sha512",

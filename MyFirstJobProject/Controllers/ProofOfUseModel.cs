@@ -17,10 +17,9 @@
 
         public override string ToString()
         {
-            string miscellaneousText = string.IsNullOrEmpty(Miscellaneous) ? "" : $"Miscellaneous - {Miscellaneous}";
+            //string miscellaneousText = string.IsNullOrEmpty(Miscellaneous) ? "" : $"Miscellaneous - {Miscellaneous}";
 
             return $"ContactPerson - {ContactPerson}\t Location - {{Location}}";
-
 
                       //FileNumber - {FileNumber}
                       //Language - {Language}
@@ -33,6 +32,5 @@
                       //Signature - {Signature}
                       //Satisfaction - {Satisfaction}";
         }
-
     }
 }

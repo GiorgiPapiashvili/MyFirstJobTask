@@ -5,17 +5,23 @@ using iText.Html2pdf;
 using iText.Kernel.Pdf;
 using System.Net;
 using System.Net.Mail;
+using FluentEmail.Smtp;
+using FluentEmail.Core;
+using MyFirstJobProject.Services;
 
 namespace MyFirstJobProject.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly EmailService _emailService;
+
         //private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHostEnviroment)
+        public HomeController(ILogger<HomeController> logger, EmailService emailService)
         {
             //_webHostEnvironment = webHostEnviroment;
+            _emailService = emailService;
             _logger = logger;
         }
 
@@ -26,29 +32,35 @@ namespace MyFirstJobProject.Controllers
 
         public IActionResult Save(ProofOfUseModel model)
         {
-            byte[] pdfBytes;
+            //byte[] pdfBytes;
 
-            using (MemoryStream ms = new MemoryStream())
-            {
-                using (var writer = new PdfWriter(ms))
-                {
-                    using (var pdf = new PdfDocument(writer))
-                    {
-                        HtmlConverter.ConvertToPdf(model.ContactPerson, pdf, converterProperties: new ConverterProperties());
-                    }
-                }
-                pdfBytes = ms.ToArray();
-            }
+            //using (MemoryStream ms = new MemoryStream())
+            //{
+            //    using (var writer = new PdfWriter(ms))
+            //    {
+            //        using (var pdf = new PdfDocument(writer))
+            //        {
+            //            HtmlConverter.ConvertToPdf(model.ContactPerson, pdf, converterProperties: new ConverterProperties());
+            //        }
+            //    }
+            //    pdfBytes = ms.ToArray();
+            //}
 
-            SendPdfByEmail(pdfBytes);
+
+             _emailService.SendEmailAsync(toAddress: "Giushki77@gmail.com", "WinForm",
+                    body: $"Customer Form\n" +
+                        $"CustomerName = {model.ContactPerson}"
+                );
+
+
+            //SendPdfByEmail(pdfBytes);
   
             //File(pdfBytes, "application/pdf", "FormData.pdf")
             return Ok("Email Sent!");
         }
 
-        private void SendPdfByEmail(byte[] pdfBytes)
+        private async void SendPdfByEmail(byte[] pdfBytes)
         {
-            // Set up the email message
             var fromAddress = new MailAddress("Giushki77@Gmail.Com", "Giorgi Papiashvili");
             var toAddress = new MailAddress("GiorgioPapiashvili77@Gmail.com", "Giorgi Papiashvili");
             const string fromPassword = "_Billion$";
@@ -61,38 +73,48 @@ namespace MyFirstJobProject.Controllers
             //                                      | SecurityProtocolType.Tls12;
             //}
 
-            var smtp = new SmtpClient
+            var sender = new SmtpSender(() => new SmtpClient()
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
+                Host = "smtp.gmail.com",              
+                Port = 465,
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
+            });
 
-            };
 
-            using (var message = new MailMessage(fromAddress, toAddress)
-            {
-                Subject = subject,
-                Body = body
-            }
-            )
-            {
+            Email.DefaultSender = sender;
+
+            var email = await Email
+                .From("Giushki77@gmail.Com")
+                .To("GiorgioPapiashvili77@Gmail.com")
+                .Subject("PDF Document")
+                .Body("Please find the attached PDF document.")
+                .SendAsync();
+
+
+            //using (var message = new MailMessage(fromAddress, toAddress)
+            //{
+            //    Subject = subject,
+            //    Body = body
+            //}
+            //)
+
+            //{
                
-                using (var stream = new MemoryStream(pdfBytes))
-                {
-                    stream.Position = 0;
-                    var attachment = new Attachment(stream, "FormData.pdf", "application/pdf");
-                    message.Attachments.Add(attachment);
+            //    using (var stream = new MemoryStream(pdfBytes))
+            //    {
+            //        stream.Position = 0;
+            //        var attachment = new Attachment(stream, "FormData.pdf", "application/pdf");
+            //        message.Attachments.Add(attachment);
 
-                    smtp.Send(message);
-                }
-            }
+            //        sender.Send();
+            //    }
+            //}
         }
 
-
-        //ViewToString
+                                 //ViewToString
         //    private async Task<string> RenderViewToStringAsync(string viewName, object model)
         //    {
         //        var viewEngine = _webHostEnvironment.ContentRootFileProvider;
@@ -130,7 +152,6 @@ namespace MyFirstJobProject.Controllers
         //        return sw.ToString();
         //    }
         //}
-
 
         public IActionResult Privacy()
         {
