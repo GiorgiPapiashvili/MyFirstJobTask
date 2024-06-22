@@ -5,12 +5,12 @@ using System.Net.Mail;
 
 namespace MyFirstJobProject.Services
 {
-    public class EmailService
+    public class EmailServiceFluent
     {
         private readonly string? _fromAddress;
         private readonly string _password;
 
-        public EmailService()
+        public EmailServiceFluent()
         {
             _fromAddress = "GiorgioPapiashvili77@Gmail.Com";
             _password = "Nugaaxure1";
