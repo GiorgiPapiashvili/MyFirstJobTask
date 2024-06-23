@@ -1,12 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyFirstJobProject.Models;
 using System.Diagnostics;
-using iText.Html2pdf;
-using iText.Kernel.Pdf;
-using System.Net;
-using System.Net.Mail;
-using FluentEmail.Smtp;
-using FluentEmail.Core;
 using MyFirstJobProject.Services;
 
 namespace MyFirstJobProject.Controllers

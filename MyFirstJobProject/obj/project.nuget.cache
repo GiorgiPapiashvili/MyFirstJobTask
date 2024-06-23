@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/B+FBxjM9HCt3pXz6kyrMricopNJTY9YI+2WsnDu7dNda1Pzk6rXrRDydf/NUBr5eZ+8wtdV+W7M5fQlRuVdsQ==",
+  "dgSpecHash": "YUGrue8Bx8H2AugQr0+2LCQgQoq8Oe6eF4iiv90zwvUiav2xwCHxuL1zsynlrEFF/VMkHAz3rpuhcnfx/odoYQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Giush\\Desktop\\JobTaskRepository\\MyFirstJobProject\\MyFirstJobProject.csproj",
+  "projectFilePath": "C:\\Users\\Giush\\Desktop\\CloneMyRepository\\MyFirstJobProject\\MyFirstJobProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Giush\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Giush\\.nuget\\packages\\itext\\8.0.4\\itext.8.0.4.nupkg.sha512",
