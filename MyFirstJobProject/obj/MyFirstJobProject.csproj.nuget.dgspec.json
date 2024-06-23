@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Giush\\Desktop\\JobTaskRepository\\MyFirstJobProject\\MyFirstJobProject.csproj": {}
+    "C:\\Users\\Giush\\Desktop\\CloneMyRepository\\MyFirstJobProject\\MyFirstJobProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Giush\\Desktop\\JobTaskRepository\\MyFirstJobProject\\MyFirstJobProject.csproj": {
+    "C:\\Users\\Giush\\Desktop\\CloneMyRepository\\MyFirstJobProject\\MyFirstJobProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Giush\\Desktop\\JobTaskRepository\\MyFirstJobProject\\MyFirstJobProject.csproj",
+        "projectUniqueName": "C:\\Users\\Giush\\Desktop\\CloneMyRepository\\MyFirstJobProject\\MyFirstJobProject.csproj",
         "projectName": "MyFirstJobProject",
-        "projectPath": "C:\\Users\\Giush\\Desktop\\JobTaskRepository\\MyFirstJobProject\\MyFirstJobProject.csproj",
+        "projectPath": "C:\\Users\\Giush\\Desktop\\CloneMyRepository\\MyFirstJobProject\\MyFirstJobProject.csproj",
         "packagesPath": "C:\\Users\\Giush\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Giush\\Desktop\\JobTaskRepository\\MyFirstJobProject\\obj\\",
+        "outputPath": "C:\\Users\\Giush\\Desktop\\CloneMyRepository\\MyFirstJobProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
