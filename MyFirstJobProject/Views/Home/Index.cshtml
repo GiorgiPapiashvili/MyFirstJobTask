@@ -5,31 +5,34 @@
 <div class="form-wrapper">
     <h1>Proof of Use</h1>
     <p class="tagline">Get things done efficiently!</p>
-    <form id="contact-form" method="post" asp-action="Save">
-        <div class="form-section">
-            <h3>Contact Details</h3>
+
+    <form id="contact-form" method="post">
+        <fieldset>
+            <legend>Contact Details</legend>
             <div class="form-group">
                 <label for="contactperson">Contact Person/Customer:</label>
-                <input type="text" id="contactperson" name="contactperson" required>
+                <input type="text" id="contactperson" name="contactperson" required placeholder="Enter Name">
             </div>
             <div class="form-group">
                 <label for="location">Location:</label>
-                <input type="text" id="location" name="location" required>
+                <input type="text" id="location" name="location" required placeholder="Enter Location">
             </div>
-        </div>
-        <div class="form-section">
-            <h3>Details</h3>
+        </fieldset>
+
+        <fieldset>
+            <legend>Details</legend>
             <div class="form-group">
                 <label for="filenumber">File Number/Name of Person:</label>
-                <input type="text" id="filenumber" name="filenumber" required>
+                <input type="text" id="filenumber" name="filenumber" required placeholder="Enter File Number/Name">
             </div>
             <div class="form-group">
                 <label for="language">Language:</label>
-                <input type="text" id="language" name="language" required>
+                <input type="text" id="language" name="language" required placeholder="Enter Language">
             </div>
-        </div>
-        <div class="form-section">
-            <h3>Schedule</h3>
+        </fieldset>
+
+        <fieldset>
+            <legend>Schedule</legend>
             <div class="form-group">
                 <label for="date">Date:</label>
                 <input type="date" id="date" name="date" required>
@@ -50,19 +53,21 @@
                 <label for="departure">Departure:</label>
                 <input type="time" id="departure" name="departure">
             </div>
-        </div>
-        <div class="form-section">
-            <h3>Additional Information</h3>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Information</legend>
             <div class="form-group">
                 <label for="miscellaneous">Miscellaneous:</label>
-                <textarea id="miscellaneous" name="miscellaneous" rows="4"></textarea>
+                <textarea id="miscellaneous" name="miscellaneous" rows="4" placeholder="Enter Additional Information"></textarea>
             </div>
-        </div>
-        <div class="form-section">
-            <h3>Feedback</h3>
+        </fieldset>
+
+        <fieldset>
+            <legend>Feedback</legend>
             <div class="form-group">
                 <label for="signature">Signature:</label>
-                <input type="text" id="signature" name="signature" required>
+                <input type="text" id="signature" name="signature" required placeholder="Enter First Name Last Name">
             </div>
             <div class="form-group">
                 <label for="satisfaction">Satisfaction:</label>
@@ -72,8 +77,10 @@
                     <label><input type="radio" name="satisfaction" value="clarification_required"> Clarification required</label>
                 </div>
             </div>
-        </div>
+        </fieldset>
+
         <button type="submit">Submit &amp; Save</button>
     </form>
+
     <p class="contact-info">For any questions, call us 24/7 at: 02582 306 99 72</p>
 </div>

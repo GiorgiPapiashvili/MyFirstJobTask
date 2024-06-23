@@ -1,7 +1,10 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<MyFirstJobProject.Services.EmailServiceNet>();
+builder.Services.AddScoped<MyFirstJobProject.Services.PdfService>();
 builder.Services.AddControllersWithViews();
+
 
 var app = builder.Build();
 
