@@ -27,16 +27,17 @@ namespace MyFirstJobProject.Services
 
         public void AddRegistrationDetailsToPDF(Document document, ProofOfUseModel model)
         {
-            string miscellanous = !string.IsNullOrEmpty(model.Miscellaneous) ? $"{model.Miscellaneous}" : "";
+            string miscellaneous = !string.IsNullOrEmpty(model.Miscellaneous) ? $"{model.Miscellaneous}" : "";
 
             document.Add(new Paragraph("Customer Details")
-                .SetFontSize(16)
+                .SetFontSize(18)
                 .SetBold()
                 .SetTextAlignment(TextAlignment.CENTER)
                 .SetMarginBottom(20));
 
             Table detailsTable = new Table(new float[] { 1, 2 }).UseAllAvailableWidth();
             detailsTable.SetMarginBottom(20);
+            detailsTable.SetHorizontalAlignment(HorizontalAlignment.CENTER);
 
             AddDetailRow(detailsTable, "Contact Person:", model.ContactPerson);
             AddDetailRow(detailsTable, "Location:", model.Location);
@@ -48,9 +49,9 @@ namespace MyFirstJobProject.Services
             AddDetailRow(detailsTable, "End:", model.End);
             AddDetailRow(detailsTable, "Departure:", model.Departure);
 
-            if (!string.IsNullOrEmpty(miscellanous))
+            if (!string.IsNullOrEmpty(miscellaneous))
             {
-                AddDetailRow(detailsTable, "Miscellanous", miscellanous);
+                AddDetailRow(detailsTable, "Miscellaneous:", miscellaneous);
             }
 
             AddDetailRow(detailsTable, "Signature:", model.Signature, true);
@@ -61,28 +62,27 @@ namespace MyFirstJobProject.Services
 
         private void AddDetailRow(Table table, string label, object value, bool highlightSignature = false)
         {
-            Cell labelCell = new Cell().Add(new Paragraph(label));
-            Cell valueCell = new Cell().Add(new Paragraph(value.ToString()));
+            Color lightBlue = new DeviceRgb(173, 216, 230); // Light blue for label cells
+            Color lightYellow = new DeviceRgb(255, 255, 224); // Light yellow for value cells
+            Color highlightColor = new DeviceRgb(255, 239, 213); // Light peach for signature highlight
+
+            Cell labelCell = new Cell().Add(new Paragraph(label).SetFontSize(12).SetBold())
+                                      .SetBackgroundColor(lightBlue)
+                                      .SetBorder(new SolidBorder(ColorConstants.BLACK, 1))
+                                      .SetPadding(5);
+
+            Cell valueCell = new Cell().Add(new Paragraph(value.ToString()).SetFontSize(12))
+                                      .SetBackgroundColor(lightYellow)
+                                      .SetBorder(new SolidBorder(ColorConstants.BLACK, 1))
+                                      .SetPadding(5);
 
             if (highlightSignature)
             {
-                labelCell.SetFontSize(14) 
-                         .SetBold()
-                         .SetBackgroundColor(ColorConstants.LIGHT_GRAY)
-                         .SetBorder(Border.NO_BORDER)
-                         .SetPadding(5);
-                valueCell.SetBackgroundColor(ColorConstants.YELLOW) // Highlight signature cell
-                         .SetBorder(Border.NO_BORDER)
-                         .SetPadding(5);
-            }
-            else
-            {
-                labelCell.SetBold()
-                         .SetBackgroundColor(ColorConstants.LIGHT_GRAY)
-                         .SetBorder(Border.NO_BORDER)
-                         .SetPadding(5);
-                valueCell.SetBorder(Border.NO_BORDER)
-                         .SetPadding(5);
+                labelCell.SetFontSize(14)
+                         .SetBackgroundColor(lightBlue)
+                         .SetPadding(10);
+                valueCell.SetBackgroundColor(highlightColor)
+                         .SetPadding(10);
             }
 
             table.AddCell(labelCell);
