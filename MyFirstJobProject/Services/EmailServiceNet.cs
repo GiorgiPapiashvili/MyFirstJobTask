@@ -12,7 +12,7 @@ namespace MyFirstJobProject.Services
                 var message = new MailMessage();
                 message.From = new MailAddress("Giushki77@gmail.com");
                 message.To.Add(new MailAddress("GiorgioPapiashvili77@gmail.com"));
-                message.Subject = "PDF Document";
+                message.Subject = "Proof Of Use";
                 message.Body = "Please find the attached PDF document.";
 
                 var attachment = new Attachment(new MemoryStream(Pdf), "ProofOfUse.Pdf", "application/pdf");
