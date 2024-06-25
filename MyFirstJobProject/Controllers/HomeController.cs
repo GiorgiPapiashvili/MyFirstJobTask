@@ -37,7 +37,12 @@ namespace MyFirstJobProject.Controllers
 
             _emailService.SendMail(SenderEmail, SenderEmailPassword, ReportEmail,pdfBytes);
 
-            return Ok("Email Sent!");
+            return RedirectToAction("SuccessPageIndex");
+        }
+
+        public IActionResult SuccessPageIndex()
+        {
+            return View();
         }
 
         public IActionResult Privacy()

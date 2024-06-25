@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gGSd1g4E6nPzBEb12HhaA9tIMWXGih4IQmkCzhfOfHU=",
+  "Hash": "mnTVfSqWvg7FkvEuV4TkVGBFxzisCXOBqcwMoT4RAZU=",
   "Source": "MyFirstJobProject",
   "BasePath": "_content/MyFirstJobProject",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Giush\\Desktop\\CloneMyRepository\\MyFirstJobProject\\wwwroot\\css\\style.css",
+      "SourceId": "MyFirstJobProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Giush\\Desktop\\CloneMyRepository\\MyFirstJobProject\\wwwroot\\",
+      "BasePath": "_content/MyFirstJobProject",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "C:\\Users\\Giush\\Desktop\\CloneMyRepository\\MyFirstJobProject\\wwwroot\\favicon.ico",
