@@ -5,7 +5,6 @@ builder.Services.AddScoped<MyFirstJobProject.Services.EmailServiceNet>();
 builder.Services.AddScoped<MyFirstJobProject.Services.PdfService>();
 builder.Services.AddControllersWithViews();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

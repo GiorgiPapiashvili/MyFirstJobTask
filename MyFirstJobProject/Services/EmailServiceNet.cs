@@ -5,13 +5,11 @@ namespace MyFirstJobProject.Services
 {
     public class EmailServiceNet
     {
-        public void SendMail(byte[] Pdf)
+        public void SendMail(string senderEmail, string senderEmailPassword, string reportEmail, byte[] Pdf)
         {
-            try
-            {
                 var message = new MailMessage();
-                message.From = new MailAddress("Giushki77@gmail.com");
-                message.To.Add(new MailAddress("GiorgioPapiashvili77@gmail.com"));
+                message.From = new MailAddress(senderEmail);
+                message.To.Add(new MailAddress(reportEmail));
                 message.Subject = "Proof Of Use";
                 message.Body = "Please find the attached PDF document.";
 
@@ -20,14 +18,9 @@ namespace MyFirstJobProject.Services
 
                 var smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new NetworkCredential(message.From.Address, "auub xhgr gppl awzv");
+                smtpClient.Credentials = new NetworkCredential(message.From.Address, senderEmailPassword);
 
                 smtpClient.Send(message);
-            }
-            catch
-            {
-                throw;
-            }
         }
     }
 }

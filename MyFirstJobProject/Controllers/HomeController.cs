@@ -10,13 +10,20 @@ namespace MyFirstJobProject.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly EmailServiceNet _emailService;
         private readonly PdfService _pdfService;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger, EmailServiceNet emailService, PdfService pdfService)
+        public HomeController(ILogger<HomeController> logger, EmailServiceNet emailService, PdfService pdfService, IConfiguration configuration)
         {
+            _configuration = configuration;
             _pdfService = pdfService;
             _emailService = emailService;
             _logger = logger;
         }
+
+
+        private string SenderEmail => _configuration["EmailSettings:SenderEmail"];
+        private string SenderEmailPassword => _configuration["EmailSettings:SenderEmailPassword"];
+        private string ReportEmail => _configuration["EmailSettings:ReportEmail"];
 
         public IActionResult Index()
         {
@@ -28,7 +35,7 @@ namespace MyFirstJobProject.Controllers
 
             byte[] pdfBytes = _pdfService.GenerateRegistrationPDFContent(model);
 
-            _emailService.SendMail(pdfBytes);
+            _emailService.SendMail(SenderEmail, SenderEmailPassword, ReportEmail,pdfBytes);
 
             return Ok("Email Sent!");
         }

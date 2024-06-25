@@ -25,7 +25,7 @@ namespace MyFirstJobProject.Services
             }
         }
 
-        public void AddRegistrationDetailsToPDF(Document document, ProofOfUseModel model)
+        private void AddRegistrationDetailsToPDF(Document document, ProofOfUseModel model)
         {
             string miscellaneous = !string.IsNullOrEmpty(model.Miscellaneous) ? $"{model.Miscellaneous}" : "";
 
